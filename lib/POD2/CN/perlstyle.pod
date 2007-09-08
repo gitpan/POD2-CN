@@ -1,14 +1,14 @@
-=encoding gb2312
+=encoding utf8
 
-=head1 ±êÌâ
+=head1 æ ‡é¢˜
 
-perlstyle - Perl ·ç¸ñÖ¸ÄÏ
+perlstyle - Perl é£æ ¼æŒ‡å—
 
 =head1 DESCRIPTION
-=head1 ÃèÊö
+=head1 æè¿°
 
-Ã¿Ò»¸ö³ÌĞòÔ±¶¼Ó¦¸Ã×¢Òâ×Ô¼ºµÄ³ÌĞò·ç¸ñ¡£µ±È»£¬³ÌĞòÔ±¿ÉÒÔÑ¡Ôñ×Ô¼ºÏ²°®µÄ
-·ç¸ñ£¬È»¶ø£¬ÓĞÒ»Ğ©Í¨ÓÃµÄ¹æÔò¿ÉÒÔÊ¹ÄãµÄ³ÌĞò¸ü¼ÓÒ×¶Á¡¢Ò×¶®¡¢Ò×ÓÚÎ¬»¤¡£
+æ¯ä¸€ä¸ªç¨‹åºå‘˜éƒ½åº”è¯¥æ³¨æ„è‡ªå·±çš„ç¨‹åºé£æ ¼ã€‚å½“ç„¶ï¼Œç¨‹åºå‘˜å¯ä»¥é€‰æ‹©è‡ªå·±å–œçˆ±çš„
+é£æ ¼ï¼Œç„¶è€Œï¼Œæœ‰ä¸€äº›é€šç”¨çš„è§„åˆ™å¯ä»¥ä½¿ä½ çš„ç¨‹åºæ›´åŠ æ˜“è¯»ã€æ˜“æ‡‚ã€æ˜“äºç»´æŠ¤ã€‚
 
 The most important thing is to run your programs under the B<-w>
 flag at all times.  You may turn it off explicitly for particular
@@ -17,95 +17,95 @@ if you must.  You should also always run under C<use strict> or know the
 reason why not.  The C<use sigtrap> and even C<use diagnostics> pragmas
 may also prove useful.
 
-ÈÎºÎÊ±ºò¶¼Ó¦¸ÃÓÃ B<-w> Ñ¡ÏîÀ´ÔËĞĞÄãµÄ³ÌĞò£¬ÕâÒ»µã·Ç³£ÖØÒª¡£±ØÒªµÄÊ±ºò
-Äã¿ÉÒÔÔÚ³ÌĞòÖĞÍ¨¹ı C<no warnings> ±àÒëÖ¸Ê¾»òÕß C<$^W> ±äÁ¿À´ÁÙÊ±¹Ø±Õ
-Ëü¡£ÁíÍâ£¬½¨ÒéÄãÔÚ³ÌĞò¿ªÊ¼´¦¼ÓÈë C<use strict>¡£×îºó£¬C<use sigtrap>
-ºÍ C<use diagnostics> ±àÒëÖ¸Ê¾Ò²Ìá¹©ÁËÒ»Ğ©ÓĞÓÃµÄÌØĞÔ£¬Äã¿ÉÒÔ²é¿´ËüÃÇ
-µÄÊÖ²áÒ³È¥×ö½øÒ»²½µÄÁË½â¡£
+ä»»ä½•æ—¶å€™éƒ½åº”è¯¥ç”¨ B<-w> é€‰é¡¹æ¥è¿è¡Œä½ çš„ç¨‹åºï¼Œè¿™ä¸€ç‚¹éå¸¸é‡è¦ã€‚å¿…è¦çš„æ—¶å€™
+ä½ å¯ä»¥åœ¨ç¨‹åºä¸­é€šè¿‡ C<no warnings> ç¼–è¯‘æŒ‡ç¤ºæˆ–è€… C<$^W> å˜é‡æ¥ä¸´æ—¶å…³é—­
+å®ƒã€‚å¦å¤–ï¼Œå»ºè®®ä½ åœ¨ç¨‹åºå¼€å§‹å¤„åŠ å…¥ C<use strict>ã€‚æœ€åï¼ŒC<use sigtrap>
+å’Œ C<use diagnostics> ç¼–è¯‘æŒ‡ç¤ºä¹Ÿæä¾›äº†ä¸€äº›æœ‰ç”¨çš„ç‰¹æ€§ï¼Œä½ å¯ä»¥æŸ¥çœ‹å®ƒä»¬
+çš„æ‰‹å†Œé¡µå»åšè¿›ä¸€æ­¥çš„äº†è§£ã€‚
 
 Regarding aesthetics of code lay out, about the only thing Larry
 cares strongly about is that the closing curly bracket of
 a multi-line BLOCK should line up with the keyword that started the construct.
 Beyond that, he has other preferences that aren't so strong:
 
-ÔÚ´úÂëÅÅ°æµÄÃÀ¹Û·½Ãæ£¬Larry WallÎ¨Ò»Ç¿ÁÒ½¨ÒéµÄÊÇ£¬¶àĞĞ´úÂë¿éÖ®ºóµÄÓÒ»¨
-À¨ºÅÓ¦¸ÃºÍÆğÊ¼Õâ¸ö¿éµÄ¹Ø¼ü×Ö´¹Ö±¶ÔÆë¡£ÁíÍâ£¬Ëû»¹Ï£ÍûÄã×öµ½ÏÂÃæÕâĞ©£¨¾¡
-¹ÜÌ¬¶È²»ÊÇºÜÇ¿ÁÒ£©£º
+åœ¨ä»£ç æ’ç‰ˆçš„ç¾è§‚æ–¹é¢ï¼ŒLarry Wallå”¯ä¸€å¼ºçƒˆå»ºè®®çš„æ˜¯ï¼Œå¤šè¡Œä»£ç å—ä¹‹åçš„å³èŠ±
+æ‹¬å·åº”è¯¥å’Œèµ·å§‹è¿™ä¸ªå—çš„å…³é”®å­—å‚ç›´å¯¹é½ã€‚å¦å¤–ï¼Œä»–è¿˜å¸Œæœ›ä½ åšåˆ°ä¸‹é¢è¿™äº›ï¼ˆå°½
+ç®¡æ€åº¦ä¸æ˜¯å¾ˆå¼ºçƒˆï¼‰ï¼š
 
 =over 4
 
 =item *
 
-4 ÁĞËõ½ø
+4 åˆ—ç¼©è¿›
 
 =item *
 
-Èç¹û¿ÉÄÜµÄ»°£¬×ó»¨À¨ºÅºÍ¹Ø¼ü×ÖÒªĞ´ÔÚÍ¬Ò»ĞĞ£¬²»È»¾ÍÁíÆğÒ»ĞĞ²¢Óë¹Ø¼ü×Ö¶ÔÆë¡£
+å¦‚æœå¯èƒ½çš„è¯ï¼Œå·¦èŠ±æ‹¬å·å’Œå…³é”®å­—è¦å†™åœ¨åŒä¸€è¡Œï¼Œä¸ç„¶å°±å¦èµ·ä¸€è¡Œå¹¶ä¸å…³é”®å­—å¯¹é½ã€‚
 
 =item *
 
-Èç¹ûÒ»¸ö¿éÓĞ¶àĞĞµÄ»°£¬×ó»¨À¨ºÅÇ°ÃæÓ¦¸ÃÁôÓĞÒ»¸ö¿Õ¸ñ¡£
+å¦‚æœä¸€ä¸ªå—æœ‰å¤šè¡Œçš„è¯ï¼Œå·¦èŠ±æ‹¬å·å‰é¢åº”è¯¥ç•™æœ‰ä¸€ä¸ªç©ºæ ¼ã€‚
 
 =item *
 
-Ö»ÓĞÒ»ĞĞÄÚÈİµÄ¿éÓ¦¸ÃÁ¬Í¬»¨À¨ºÅÒ»ÆğĞ´ÔÚÍ¬Ò»ĞĞÄÚ¡£
+åªæœ‰ä¸€è¡Œå†…å®¹çš„å—åº”è¯¥è¿åŒèŠ±æ‹¬å·ä¸€èµ·å†™åœ¨åŒä¸€è¡Œå†…ã€‚
 
 =item *
 
-·ÖºÅÇ°²»Òª¼Ó¿Õ¸ñ¡£
+åˆ†å·å‰ä¸è¦åŠ ç©ºæ ¼ã€‚
 
 =item *
 
-ÔÚ½Ï¶ÌµÄµ¥ĞĞ¿éÖĞ£¬Ó¦¸ÃÊ¡ÂÔ·ÖºÅ¡£
+åœ¨è¾ƒçŸ­çš„å•è¡Œå—ä¸­ï¼Œåº”è¯¥çœç•¥åˆ†å·ã€‚
 
 =item *
 
-¶ÔÓÚ´ó¶àÊıÔËËã·ûÀ´Ëµ£¬Ó¦¸ÃÔÚÁ½±ß¸÷¼ÓÒ»¸ö¿Õ¸ñ¡£
+å¯¹äºå¤§å¤šæ•°è¿ç®—ç¬¦æ¥è¯´ï¼Œåº”è¯¥åœ¨ä¸¤è¾¹å„åŠ ä¸€ä¸ªç©ºæ ¼ã€‚
 
 =item *
 
-½Ï¸´ÔÓĞ©µÄÏÂ±ê£¨Êı×éÏÂ±ê»òÕß hash ÏÂ±ê£©Á½±ßÓ¦¸Ã¼ÓÉÏ¿Õ¸ñ¡£
+è¾ƒå¤æ‚äº›çš„ä¸‹æ ‡ï¼ˆæ•°ç»„ä¸‹æ ‡æˆ–è€… hash ä¸‹æ ‡ï¼‰ä¸¤è¾¹åº”è¯¥åŠ ä¸Šç©ºæ ¼ã€‚
 
 =item *
 
-¹¦ÄÜÏà¶Ô¶ÀÁ¢µÄÁ½¸ö³ÌĞò¶ÎÂäÖ®¼äÓ¦¸ÃÁôÓĞ¿ÕĞĞ¡£
+åŠŸèƒ½ç›¸å¯¹ç‹¬ç«‹çš„ä¸¤ä¸ªç¨‹åºæ®µè½ä¹‹é—´åº”è¯¥ç•™æœ‰ç©ºè¡Œã€‚
 
 =item *
 
 Uncuddled elses.
-elseÓ¦¸ÃÁíÆğÒ»ĞĞ¡£
+elseåº”è¯¥å¦èµ·ä¸€è¡Œã€‚
 
 =item *
 
-º¯Êıµ÷ÓÃÊ±£¬º¯ÊıÃû³ÆºÍ×óÔ²À¨ºÅÖ®¼ä²»Ó¦ÁôÈÎºÎ¿Õ°×¡£
+å‡½æ•°è°ƒç”¨æ—¶ï¼Œå‡½æ•°åç§°å’Œå·¦åœ†æ‹¬å·ä¹‹é—´ä¸åº”ç•™ä»»ä½•ç©ºç™½ã€‚
 
 =item *
 
-Ã¿¸ö¶ººÅÖ®ºó¶¼Ó¦¸Ã¼ÓÒ»¸ö¿Õ¸ñ¡£
+æ¯ä¸ªé€—å·ä¹‹åéƒ½åº”è¯¥åŠ ä¸€ä¸ªç©ºæ ¼ã€‚
 
 =item *
 
-³¤ĞĞÓ¦¸ÃÔÚÓÅÏÈ¼¶½ÏµÍµÄÔËËã·ûÓÒÃæ¶ÏĞĞ¡£
+é•¿è¡Œåº”è¯¥åœ¨ä¼˜å…ˆçº§è¾ƒä½çš„è¿ç®—ç¬¦å³é¢æ–­è¡Œã€‚
 
 =item *
 
 Space after last parenthesis matching on current line.
-±¾ĞĞ×îºóÒ»¸ö¿Õ¸ñºó¼Ó¿Õ¸ñ¡£
+æœ¬è¡Œæœ€åä¸€ä¸ªç©ºæ ¼ååŠ ç©ºæ ¼ã€‚
 
 =item *
 
-ËùÓĞµÄÓï¾ä¶¼Ó¦¸Ã°´ÕÕ²ã´Î´¹Ö±¶ÔÆë¡£
+æ‰€æœ‰çš„è¯­å¥éƒ½åº”è¯¥æŒ‰ç…§å±‚æ¬¡å‚ç›´å¯¹é½ã€‚
 
 =item *
 
-ÔÚ²»ÒıÆğÆçÒåµÄÇ°ÌáÏÂºöÂÔ¶àÓàµÄ±êµã·ûºÅ¡£
+åœ¨ä¸å¼•èµ·æ­§ä¹‰çš„å‰æä¸‹å¿½ç•¥å¤šä½™çš„æ ‡ç‚¹ç¬¦å·ã€‚
 
 =back
 
-Larry ÖÆ¶©ÕâĞ©¹æÔòÊ±×ÔÈ»ÓĞËûµÄÔ­Òò£¬²»¹ıËûÒ²²¢²»ÒªÇóËùÓĞµÄÈË¶¼ºÍËûÍêÈ«
-Ò»Ñù¡££¨Äã¿ÉÒÔÒòµØÖÆÒËµØÖÆ¶©³ö×Ô¼ºµÄ·ç¸ñ£©
+Larry åˆ¶è®¢è¿™äº›è§„åˆ™æ—¶è‡ªç„¶æœ‰ä»–çš„åŸå› ï¼Œä¸è¿‡ä»–ä¹Ÿå¹¶ä¸è¦æ±‚æ‰€æœ‰çš„äººéƒ½å’Œä»–å®Œå…¨
+ä¸€æ ·ã€‚ï¼ˆä½ å¯ä»¥å› åœ°åˆ¶å®œåœ°åˆ¶è®¢å‡ºè‡ªå·±çš„é£æ ¼ï¼‰
 
-ÏÂÃæ»¹ÓĞÒ»Ğ©¸ü¶àµÄ·ç¸ñÎÊÌâÎÒÃÇÒ»ÆğÀ´Ì½ÌÖÒ»ÏÂ£º
+ä¸‹é¢è¿˜æœ‰ä¸€äº›æ›´å¤šçš„é£æ ¼é—®é¢˜æˆ‘ä»¬ä¸€èµ·æ¥æ¢è®¨ä¸€ä¸‹ï¼š
 
 =over 4
 
@@ -116,44 +116,44 @@ you I<SHOULD> do it that way.  Perl is designed to give you several
 ways to do anything, so consider picking the most readable one.  For
 instance
 
-Äã¡°ÄÜ¡±×öÕâ¼şÊÂ²¢²»±íÊ¾Äã¾Í¡°¸Ã¡±ÕâÃ´×ö¡£Perl ¶ÔÈÎºÎÊÂÇéÍùÍù¶¼Ìá¹©¶àÖÖ·½·¨£¬×îºÃÑ¡Ôñ×îÒ×¶ÁµÄÄÇÖÖ¡£±ÈÈç£º
+ä½ â€œèƒ½â€åšè¿™ä»¶äº‹å¹¶ä¸è¡¨ç¤ºä½ å°±â€œè¯¥â€è¿™ä¹ˆåšã€‚Perl å¯¹ä»»ä½•äº‹æƒ…å¾€å¾€éƒ½æä¾›å¤šç§æ–¹æ³•ï¼Œæœ€å¥½é€‰æ‹©æœ€æ˜“è¯»çš„é‚£ç§ã€‚æ¯”å¦‚ï¼š
 
     open(FOO,$foo) || die "Can't open $foo: $!";
 
 is better than
 
-¾Í±ÈÕâ¸öÒªºÃ£º
+å°±æ¯”è¿™ä¸ªè¦å¥½ï¼š
 
     die "Can't open $foo: $!" unless open(FOO,$foo);
 
 because the second way hides the main point of the statement in a
 modifier.  On the other hand
 
-ÒòÎªºóÒ»ÖÖ·½·¨°ÑÖ÷ÒªµÄ²¿·ÖÒş²ØÔÚÁËºóÃæ¡£¶øÕâ¸ö£º
+å› ä¸ºåä¸€ç§æ–¹æ³•æŠŠä¸»è¦çš„éƒ¨åˆ†éšè—åœ¨äº†åé¢ã€‚è€Œè¿™ä¸ªï¼š
 
     print "Starting analysis\n" if $verbose;
 
 is better than
 
-Ôò±ÈÕâ¸öºÃ£º
+åˆ™æ¯”è¿™ä¸ªå¥½ï¼š
 
     $verbose && print "Starting analysis\n";
 
 because the main point isn't whether the user typed B<-v> or not.
 
-ÒòÎªÖ÷ÒªµÄÎÊÌâ²¢²»ÔÚÓÚÓÃ»§ÊÇ·ñÊäÈëÁËB<-v>¡£
+å› ä¸ºä¸»è¦çš„é—®é¢˜å¹¶ä¸åœ¨äºç”¨æˆ·æ˜¯å¦è¾“å…¥äº†B<-v>ã€‚
 
 Similarly, just because an operator lets you assume default arguments
 doesn't mean that you have to make use of the defaults.  The defaults
 are there for lazy systems programmers writing one-shot programs.  If
 you want your program to be readable, consider supplying the argument.
 
-ÀàËÆµÄ£¬Ò»Ğ©²Ù×÷·ûÓĞÄ¬ÈÏÖµ²¢²»±íÊ¾ÄãÒ»¶¨Òª²ÉÓÃËü¡£Ä¬ÈÏÉèÖÃÊÇÎªÁË¸øÄÇĞ©ÀÁ¹íÏµÍ³³ÌĞòÔ±ÓÃÀ´Ğ´Ò»´ÎĞÔ³ÌĞòÓÃµÄ¡£Èç¹ûÄãÏ£ÍûÄãµÄ³ÌĞò¸ü¼ÓÒ×¶Á£¬×îºÃÌá¹©Ã÷È·µÄ²ÎÊı¡£
+ç±»ä¼¼çš„ï¼Œä¸€äº›æ“ä½œç¬¦æœ‰é»˜è®¤å€¼å¹¶ä¸è¡¨ç¤ºä½ ä¸€å®šè¦é‡‡ç”¨å®ƒã€‚é»˜è®¤è®¾ç½®æ˜¯ä¸ºäº†ç»™é‚£äº›æ‡’é¬¼ç³»ç»Ÿç¨‹åºå‘˜ç”¨æ¥å†™ä¸€æ¬¡æ€§ç¨‹åºç”¨çš„ã€‚å¦‚æœä½ å¸Œæœ›ä½ çš„ç¨‹åºæ›´åŠ æ˜“è¯»ï¼Œæœ€å¥½æä¾›æ˜ç¡®çš„å‚æ•°ã€‚
 
 Along the same lines, just because you I<CAN> omit parentheses in many
 places doesn't mean that you ought to:
 
-Í¬ÑùµÀÀí£¬ÓĞĞ©µØ·½ÊÇ¿ÉÒÔÊ¡ÂÔÀ¨ºÅ£¬µ«ÄãÃ»±ØÒª·ÇÊ¡ÂÔËüÃÇ²»¿É£º
+åŒæ ·é“ç†ï¼Œæœ‰äº›åœ°æ–¹æ˜¯å¯ä»¥çœç•¥æ‹¬å·ï¼Œä½†ä½ æ²¡å¿…è¦éçœç•¥å®ƒä»¬ä¸å¯ï¼š
 
     return print reverse sort num values %array;
     return print(reverse(sort num (values(%array))));
@@ -161,13 +161,13 @@ places doesn't mean that you ought to:
 When in doubt, parenthesize.  At the very least it will let some poor
 schmuck bounce on the % key in B<vi>.
 
-Èç¹û¿ÉÄÜ´æÔÚÆçÒå£¬¾ÍÓÃÀ¨ºÅ¡£
+å¦‚æœå¯èƒ½å­˜åœ¨æ­§ä¹‰ï¼Œå°±ç”¨æ‹¬å·ã€‚
 
 Even if you aren't in doubt, consider the mental welfare of the person
 who has to maintain the code after you, and who will probably put
 parentheses in the wrong place.
 
-¼´Ê¹Èç¹û´Ë´¦Ã»ÓĞÆçÒå£¬Ò²¿¼ÂÇÒ»ÏÂÔÚÄãÖ®ºóÎ¬»¤Õâ¶Î´úÂëµÄÈËµÄ¾«Éñ½¡¿µ£¬ËûÉõÖÁ¿ÉÄÜ»á°ÑÀ¨ĞĞ·Å´íµØ·½¡£
+å³ä½¿å¦‚æœæ­¤å¤„æ²¡æœ‰æ­§ä¹‰ï¼Œä¹Ÿè€ƒè™‘ä¸€ä¸‹åœ¨ä½ ä¹‹åç»´æŠ¤è¿™æ®µä»£ç çš„äººçš„ç²¾ç¥å¥åº·ï¼Œä»–ç”šè‡³å¯èƒ½ä¼šæŠŠæ‹¬è¡Œæ”¾é”™åœ°æ–¹ã€‚
 
 =item *
 
@@ -175,7 +175,7 @@ Don't go through silly contortions to exit a loop at the top or the
 bottom, when Perl provides the C<last> operator so you can exit in
 the middle.  Just "outdent" it a little to make it more visible:
 
-²»Òª¿ÌÒâÒªÔÚÑ­»·µÄ¶¥²¿»òÕßµ×²¿ÍË³ö£¬perlÌá¹©C<last>²Ù×÷·ûÈÃÄã¿ÉÒÔÔÚÖĞ¼äÍË³ö¡£¿ÉÒÔÈÃËüÍ»³öÀ´Ò»Ğ©ÒÔ±ã¸üÏÔÑÛ¡£
+ä¸è¦åˆ»æ„è¦åœ¨å¾ªç¯çš„é¡¶éƒ¨æˆ–è€…åº•éƒ¨é€€å‡ºï¼Œperlæä¾›C<last>æ“ä½œç¬¦è®©ä½ å¯ä»¥åœ¨ä¸­é—´é€€å‡ºã€‚å¯ä»¥è®©å®ƒçªå‡ºæ¥ä¸€äº›ä»¥ä¾¿æ›´æ˜¾çœ¼ã€‚
 
     LINE:
 	for (;;) {
@@ -191,7 +191,7 @@ Don't be afraid to use loop labels--they're there to enhance
 readability as well as to allow multilevel loop breaks.  See the
 previous example.
 
-Ê¹ÓÃÑ­»·±ê¼ÇÒ²Ã»¹ØÏµ£¬ÒòÎªËüÃÇ¾ÍÊÇÓÃÀ´Ôö¼Ó¿É¶ÁĞÔÒÔ¼°Éè¼Æ¶à²ãÑ­»·ÓÃµÄ¡£¿´Ç°ÃæÕâ¸öÀı×Ó¡£
+ä½¿ç”¨å¾ªç¯æ ‡è®°ä¹Ÿæ²¡å…³ç³»ï¼Œå› ä¸ºå®ƒä»¬å°±æ˜¯ç”¨æ¥å¢åŠ å¯è¯»æ€§ä»¥åŠè®¾è®¡å¤šå±‚å¾ªç¯ç”¨çš„ã€‚çœ‹å‰é¢è¿™ä¸ªä¾‹å­ã€‚
 
 =item *
 
@@ -200,7 +200,7 @@ when you just throw away their return values.  Those functions all
 have return values, so use them.  Otherwise use a foreach() loop or
 the system() function instead.
 
-¾¡Á¿±ÜÃâÔÚ¿Õ»·¾³ÏÂÊ¹ÓÃgrep() (»òÕßmap())ºÍ``£¬ÒòÎªÊ¹ÓÃËüÃÇÊÇÎªÁËµÃµ½ËüÃÇµÄ·µ»ØÖµ¡£¶øÈç¹ûÄã²»ÓÃËüÃÇµÄ·µ»ØÖµ£¬ÄÇ²»Èç¾ÍÓÃ foreach Ñ­»·»òÕß system() º¯ÊıºÃÁË¡£
+å°½é‡é¿å…åœ¨ç©ºç¯å¢ƒä¸‹ä½¿ç”¨grep() (æˆ–è€…map())å’Œ``ï¼Œå› ä¸ºä½¿ç”¨å®ƒä»¬æ˜¯ä¸ºäº†å¾—åˆ°å®ƒä»¬çš„è¿”å›å€¼ã€‚è€Œå¦‚æœä½ ä¸ç”¨å®ƒä»¬çš„è¿”å›å€¼ï¼Œé‚£ä¸å¦‚å°±ç”¨ foreach å¾ªç¯æˆ–è€… system() å‡½æ•°å¥½äº†ã€‚
 
 =item *
 
@@ -211,14 +211,14 @@ implemented, you can test C<$]> (C<$PERL_VERSION> in C<English>) to see if it
 will be there.  The C<Config> module will also let you interrogate values
 determined by the B<Configure> program when Perl was installed.
 
-³öÓÚ¿ÉÒÆÖ²ĞÔµÄ¿¼ÂÇ£¬µ±Ê¹ÓÃÀÏ°æ±¾Ã»ÓĞµÄĞÂÌØĞÔµÄÊ±ºò£¬ÓÃ eval ²âÊÔÒ»ÏÂÊÇ·ñ»áÊ§°Ü¡£Èç¹ûÄãÖªµÀÊÇÔÚÄÄ¸ö°æ±¾²Å¼Ó½øÀ´µÄ£¬Äã¿ÉÒÔÓÃC<$]> (ÔÚc<English>ÖĞÊÇC<$PERL_VERSION>) ²âÊÔ¿´¿´¡£C<Config> Ä£¿éÒ²¿ÉÒÔÈÃÄãµÃµ½ Perl °²×°Ê± B<Config> Ä£¿éµÄ¸÷ÖÖ²ÎÊı¡£
+å‡ºäºå¯ç§»æ¤æ€§çš„è€ƒè™‘ï¼Œå½“ä½¿ç”¨è€ç‰ˆæœ¬æ²¡æœ‰çš„æ–°ç‰¹æ€§çš„æ—¶å€™ï¼Œç”¨ eval æµ‹è¯•ä¸€ä¸‹æ˜¯å¦ä¼šå¤±è´¥ã€‚å¦‚æœä½ çŸ¥é“æ˜¯åœ¨å“ªä¸ªç‰ˆæœ¬æ‰åŠ è¿›æ¥çš„ï¼Œä½ å¯ä»¥ç”¨C<$]> (åœ¨c<English>ä¸­æ˜¯C<$PERL_VERSION>) æµ‹è¯•çœ‹çœ‹ã€‚C<Config> æ¨¡å—ä¹Ÿå¯ä»¥è®©ä½ å¾—åˆ° Perl å®‰è£…æ—¶ B<Config> æ¨¡å—çš„å„ç§å‚æ•°ã€‚
 
 =item *
 
 Choose mnemonic identifiers.  If you can't remember what mnemonic means,
 you've got a problem.
 
-Ñ¡ÔñÈİÒ×¼ÇÒäµÄ±äÁ¿Ãû¡£Èç¹ûÄã×Ô¼º¶¼¼Ç²»×¡ÄãµÄ±äÁ¿Ãû£¬¿Ï¶¨¾Í»áÓĞÎÊÌâ¡£
+é€‰æ‹©å®¹æ˜“è®°å¿†çš„å˜é‡åã€‚å¦‚æœä½ è‡ªå·±éƒ½è®°ä¸ä½ä½ çš„å˜é‡åï¼Œè‚¯å®šå°±ä¼šæœ‰é—®é¢˜ã€‚
 
 =item *
 
@@ -227,7 +227,7 @@ separate words.  It is generally easier to read $var_names_like_this than
 $VarNamesLikeThis, especially for non-native speakers of English. It's
 also a simple rule that works consistently with VAR_NAMES_LIKE_THIS.
 
-ËäÈ»¶ÌÃû×ÖÏñ $gotit ÕâÑùµÄÒ²»¹´ÕºÏ£¬µ«ÊÇ×îºÃ»¹ÊÇÓÃÏÂ»®Ïß·Ö¸ôÒ»ÏÂµ¥´Ê¡£$var_name ×Ü±È $VarNamesLikeThis ÒªÒ×¶Á£¬ÌØ±ğÊÇ·ÇÓ¢Óï¹ú¼ÒµÄÈË¡£¼´Ê¹µ±±äÁ¿Ãû±ä³É VAR_NAME_LIKE_THIS µÄÊ±ºòÕâ¸ö¹æÔòÈÔÈ»ÊÊÓÃ¡£
+è™½ç„¶çŸ­åå­—åƒ $gotit è¿™æ ·çš„ä¹Ÿè¿˜å‡‘åˆï¼Œä½†æ˜¯æœ€å¥½è¿˜æ˜¯ç”¨ä¸‹åˆ’çº¿åˆ†éš”ä¸€ä¸‹å•è¯ã€‚$var_name æ€»æ¯” $VarNamesLikeThis è¦æ˜“è¯»ï¼Œç‰¹åˆ«æ˜¯éè‹±è¯­å›½å®¶çš„äººã€‚å³ä½¿å½“å˜é‡åå˜æˆ VAR_NAME_LIKE_THIS çš„æ—¶å€™è¿™ä¸ªè§„åˆ™ä»ç„¶é€‚ç”¨ã€‚
 
 Package names are sometimes an exception to this rule.  Perl informally
 reserves lowercase module names for "pragma" modules like C<integer> and
@@ -236,22 +236,22 @@ case, but probably without underscores due to limitations in primitive
 file systems' representations of module names as files that must fit into a
 few sparse bytes.
 
-Ä£¿éÃûÓĞÊ±Ôò»áÀıÍâ¡£Perl Ò»°ã½«Ğ¡Ğ´×ÖÄ¸µÄÃû×ÖÁô¸ø pragma Ä£¿é£¬ÏñC<integer> ºÍC<strict>¡£ÆäËûÄ£¿éÔòÓ¦¸ÃÓÃ´óĞ´×ÖÄ¸¿ªÍ·£¬Í¬Ê±Ê¹ÓÃ»ìºÏ´óĞ¡Ğ´µÄ·ç¸ñ£¬¶øÇÒÃ»ÓĞÏÂ»®Ïß£¬ÒòÎªÄ³Ğ©Ô­Ê¼µÄÏµÍ³²»ÄÜÖ§³ÖºÜ³¤µÄÎÄ¼şÃû¡£
+æ¨¡å—åæœ‰æ—¶åˆ™ä¼šä¾‹å¤–ã€‚Perl ä¸€èˆ¬å°†å°å†™å­—æ¯çš„åå­—ç•™ç»™ pragma æ¨¡å—ï¼ŒåƒC<integer> å’ŒC<strict>ã€‚å…¶ä»–æ¨¡å—åˆ™åº”è¯¥ç”¨å¤§å†™å­—æ¯å¼€å¤´ï¼ŒåŒæ—¶ä½¿ç”¨æ··åˆå¤§å°å†™çš„é£æ ¼ï¼Œè€Œä¸”æ²¡æœ‰ä¸‹åˆ’çº¿ï¼Œå› ä¸ºæŸäº›åŸå§‹çš„ç³»ç»Ÿä¸èƒ½æ”¯æŒå¾ˆé•¿çš„æ–‡ä»¶åã€‚
 
 =item *
 
 You may find it helpful to use letter case to indicate the scope
 or nature of a variable. For example:
 
-ÓĞÊ±ÓĞÓÃ×Ö·ûµÄ´óĞ¡Ğ´À´±íÊ¾±äÁ¿µÄĞÔÖÊºÍ×÷ÓÃÓòÒ²ÊÇÓĞÓÃµÄ£¬±ÈÈç£º
+æœ‰æ—¶æœ‰ç”¨å­—ç¬¦çš„å¤§å°å†™æ¥è¡¨ç¤ºå˜é‡çš„æ€§è´¨å’Œä½œç”¨åŸŸä¹Ÿæ˜¯æœ‰ç”¨çš„ï¼Œæ¯”å¦‚ï¼š
 
     $ALL_CAPS_HERE   constants only (beware clashes with perl vars!)
     $Some_Caps_Here  package-wide global/static
     $no_caps_here    function scope my() or local() variables
 
-    $ALL_CAPS_HERE   ³£Á¿£¨Ğ¡ĞÄÓÚperlÄÚÖÃ±äÁ¿³åÍ»£©
-    $Some_Caps_Here  °üÄÚ¾²Ì¬Á¿/³£Á¿
-    $no_capts_here   º¯Êı×÷ÓÃÓòµÄ my() »òÕßlocal() ±äÁ¿
+    $ALL_CAPS_HERE   å¸¸é‡ï¼ˆå°å¿ƒäºperlå†…ç½®å˜é‡å†²çªï¼‰
+    $Some_Caps_Here  åŒ…å†…é™æ€é‡/å¸¸é‡
+    $no_capts_here   å‡½æ•°ä½œç”¨åŸŸçš„ my() æˆ–è€…local() å˜é‡
 
 Function and method names seem to work best as all lowercase.
 E.g., $obj-E<gt>as_string().
@@ -259,7 +259,7 @@ E.g., $obj-E<gt>as_string().
 You can use a leading underscore to indicate that a variable or
 function should not be used outside the package that defined it.
 
-º¯ÊıÃûºÍ·½·¨×îºÃÊ¹ÓÃÈ«Ğ¡Ğ´£¬±ÈÈç£º$obj-E<gt>as_string()¡£
+å‡½æ•°åå’Œæ–¹æ³•æœ€å¥½ä½¿ç”¨å…¨å°å†™ï¼Œæ¯”å¦‚ï¼š$obj-E<gt>as_string()ã€‚
 
 =item *
 
@@ -267,7 +267,7 @@ If you have a really hairy regular expression, use the C</x> modifier and
 put in some whitespace to make it look a little less like line noise.
 Don't use slash as a delimiter when your regexp has slashes or backslashes.
 
-Èç¹ûÄãÓĞÒ»¸öÏàµ±·±ËöµÄÕıÔò±í´ïÊ½£¬ÓÃC</x>ĞŞÊÎ·ûÒÔ¼°Ò»Ğ©¿Õ¸ñÈÃËüÃÇ¸üÈİÒ×Àí½âÒ»Ğ©¡£µ±ÄãµÄÕıÔò±í´ïÊ½ÖĞÓĞĞ±Ïß»ò·´Ğ±ÏßÊ±£¬²»ÒªÓÃĞ±Ïß×÷Îª·Ö¸ô·û¡£
+å¦‚æœä½ æœ‰ä¸€ä¸ªç›¸å½“ç¹ççš„æ­£åˆ™è¡¨è¾¾å¼ï¼Œç”¨C</x>ä¿®é¥°ç¬¦ä»¥åŠä¸€äº›ç©ºæ ¼è®©å®ƒä»¬æ›´å®¹æ˜“ç†è§£ä¸€äº›ã€‚å½“ä½ çš„æ­£åˆ™è¡¨è¾¾å¼ä¸­æœ‰æ–œçº¿æˆ–åæ–œçº¿æ—¶ï¼Œä¸è¦ç”¨æ–œçº¿ä½œä¸ºåˆ†éš”ç¬¦ã€‚
 
 =item *
 
@@ -276,20 +276,20 @@ list operators so much, and to reduce the incidence of punctuation
 operators like C<&&> and C<||>.  Call your subroutines as if they were
 functions or list operators to avoid excessive ampersands and parentheses.
 
-ÓÃĞÂµÄ and ºÍ or ²Ù×÷·ûÀ´±ÜÃâÊ¹ÓÃ¹ı¶àµÄÀ¨ºÅÒÔ¼°C<&&>ºÍC<||>¡£ÏñÓÃÁĞ²Ù×÷·ûÒ»Ñùµ÷ÓÃÄãµÄº¯ÊıÀ´±ÜÃâ¹ı¶àµÄÀ¨ºÅ¡£
+ç”¨æ–°çš„ and å’Œ or æ“ä½œç¬¦æ¥é¿å…ä½¿ç”¨è¿‡å¤šçš„æ‹¬å·ä»¥åŠC<&&>å’ŒC<||>ã€‚åƒç”¨åˆ—æ“ä½œç¬¦ä¸€æ ·è°ƒç”¨ä½ çš„å‡½æ•°æ¥é¿å…è¿‡å¤šçš„æ‹¬å·ã€‚
 
 =item *
 
 Use here documents instead of repeated print() statements.
 
-Ê¹ÓÃ±¾µØÎÄµµ´úÌæ·´¸´µÄprint()Óï¾ä¡£
+ä½¿ç”¨æœ¬åœ°æ–‡æ¡£ä»£æ›¿åå¤çš„print()è¯­å¥ã€‚
 
 =item *
 
 Line up corresponding things vertically, especially if it'd be too long
 to fit on one line anyway.
 
-´¹Ö±¶ÔÆëÏàÓ¦µÄ²¿·Ö£¬ÓÈÆäÊÇµ±Ò»ĞĞĞ´²»ÏÂµÄÊ±ºò¡£
+å‚ç›´å¯¹é½ç›¸åº”çš„éƒ¨åˆ†ï¼Œå°¤å…¶æ˜¯å½“ä¸€è¡Œå†™ä¸ä¸‹çš„æ—¶å€™ã€‚
 
     $IDX = $ST_MTIME;
     $IDX = $ST_ATIME 	   if $opt_u;
@@ -308,7 +308,7 @@ system call and arguments were, and (VERY IMPORTANT) should contain the
 standard system error message for what went wrong.  Here's a simple but
 sufficient example:
 
-Ê¼ÖÕ¼ì²éÏµÍ³µ÷ÓÃµÄ·µ»ØÖµ¡£ÓĞÓÃµÄ³ö´íĞÅÏ¢Ó¦¸ÃÊä³öµ½STDERR£¬°üÀ¨ÄÄ¸ö³ÌĞò³öÁË´í£¬ÄÄ¸öµ÷ÓÃÓĞÎÊÌâ£¬²ÎÊıÊÇÊ²Ã´£¬¶øÇÒ£¨·Ç³£ÖØÒª£¡£©Òª°üÀ¨±ê×¼µÄÏµÍ³´íÎóĞÅÏ¢¡£Ò»ÏÂÊÇÒ»¸ö¼òµ¥²»¹ıÍêÕûµÄÀı×Ó£º
+å§‹ç»ˆæ£€æŸ¥ç³»ç»Ÿè°ƒç”¨çš„è¿”å›å€¼ã€‚æœ‰ç”¨çš„å‡ºé”™ä¿¡æ¯åº”è¯¥è¾“å‡ºåˆ°STDERRï¼ŒåŒ…æ‹¬å“ªä¸ªç¨‹åºå‡ºäº†é”™ï¼Œå“ªä¸ªè°ƒç”¨æœ‰é—®é¢˜ï¼Œå‚æ•°æ˜¯ä»€ä¹ˆï¼Œè€Œä¸”ï¼ˆéå¸¸é‡è¦ï¼ï¼‰è¦åŒ…æ‹¬æ ‡å‡†çš„ç³»ç»Ÿé”™è¯¯ä¿¡æ¯ã€‚ä¸€ä¸‹æ˜¯ä¸€ä¸ªç®€å•ä¸è¿‡å®Œæ•´çš„ä¾‹å­ï¼š
 
     opendir(D, $dir)	 or die "can't opendir $dir: $!";
 
@@ -319,7 +319,7 @@ Line up your transliterations when it makes sense:
     tr [abc]
        [xyz];
 
-Èç¹û¿ÉÒÔµÄ»°£¬×Ö·ûÓ³ÉäÓ¦¸Ã¶ÔÆë¡£
+å¦‚æœå¯ä»¥çš„è¯ï¼Œå­—ç¬¦æ˜ å°„åº”è¯¥å¯¹é½ã€‚
 
 =item *
 
@@ -330,25 +330,25 @@ code run cleanly with C<use strict> and C<use warnings> (or B<-w>) in
 effect.  Consider giving away your code.  Consider changing your whole
 world view.  Consider... oh, never mind.
 
-¿¼ÂÇÒ»ÏÂ¿ÉÖØÓÃĞÔ£¬µ±Äã¿ÉÄÜ»áÔÙÓÃµ½ËüµÄÊ±ºò£¬ÎªÊ²Ã´ÀË·Ñ¾«Á¦Ğ´Ò»´ÎĞÔµÄ³ÌĞòÄØ£¿À©Õ¹ÄãµÄ³ÌĞò£¬²¢¿¼ÂÇÒ»ÏÂĞ´Ò»¸öÄ£¿é»òÕßÀà¡£¿´¿´ÄÜ·ñÔÚC<use strict>ºÍC<use warnings>£¨»òB -w<>£©ÏÂÔËĞĞÄãµÄ³ÌĞò¡£ÊÔÊÔ¿´·¢²¼ÄãµÄ³ÌĞò£¬ÊÔÊÔ¿´¸Ä±äÄãµÄÊÀ½ç¹Û¡£ÊÔÊÔ¿´¡£¡£¡£oh£¬»¹ÊÇËãÁË¡£
+è€ƒè™‘ä¸€ä¸‹å¯é‡ç”¨æ€§ï¼Œå½“ä½ å¯èƒ½ä¼šå†ç”¨åˆ°å®ƒçš„æ—¶å€™ï¼Œä¸ºä»€ä¹ˆæµªè´¹ç²¾åŠ›å†™ä¸€æ¬¡æ€§çš„ç¨‹åºå‘¢ï¼Ÿæ‰©å±•ä½ çš„ç¨‹åºï¼Œå¹¶è€ƒè™‘ä¸€ä¸‹å†™ä¸€ä¸ªæ¨¡å—æˆ–è€…ç±»ã€‚çœ‹çœ‹èƒ½å¦åœ¨C<use strict>å’ŒC<use warnings>ï¼ˆæˆ–B -w<>ï¼‰ä¸‹è¿è¡Œä½ çš„ç¨‹åºã€‚è¯•è¯•çœ‹å‘å¸ƒä½ çš„ç¨‹åºï¼Œè¯•è¯•çœ‹æ”¹å˜ä½ çš„ä¸–ç•Œè§‚ã€‚è¯•è¯•çœ‹ã€‚ã€‚ã€‚ohï¼Œè¿˜æ˜¯ç®—äº†ã€‚
 
 =item *
 
 Be consistent.
 
-¼á³Ö²»Ğ¸¡£
+åšæŒä¸æ‡ˆã€‚
 
 =item *
 
 Be nice.
 
-×ö¸öºÃÈË¡£
+åšä¸ªå¥½äººã€‚
 
 =back
 
 =head1 TRANSLATORS
 
-ÖÜ½Ü "klaus" <zhoujie@fudan.edu.cn> 
+å‘¨æ° "klaus" <zhoujie@fudan.edu.cn> 
 "flw" <flw@cpan.org>
 
-ÖĞ¹úperlĞ­»á£º  www.perlchina.org
+ä¸­å›½perlåä¼šï¼š  www.perlchina.org

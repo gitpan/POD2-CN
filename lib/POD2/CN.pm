@@ -3,8 +3,9 @@ package POD2::CN;
 use warnings;
 use strict;
 use vars qw($VERSION);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
+use base qw( POD2::Base );
 
 1;
 __END__

@@ -1,10 +1,12 @@
+=encoding utf8
+
 =head1 NAME
 
-perlguts - Perl API ½éÉÜ
+perlguts - Perl API ä»‹ç»
 
 =head1 DESCRIPTION
 
-±¾ÎÄµµ
+æœ¬æ–‡æ¡£
 This document attempts to describe how to use the Perl API, as well as
 to provide some info on the basic workings of the Perl core. It is far
 from complete and probably contains many errors. Please refer any

@@ -1,3 +1,5 @@
+=encoding utf8
+
 =head1 NAME
 
 perlnumber - semantics of numbers and numeric operations in Perl

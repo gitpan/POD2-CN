@@ -1,3 +1,5 @@
+=encoding utf8
+
 =head1 NAME
 
 perlintro -- Perl简介和概览

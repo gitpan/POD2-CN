@@ -5,6 +5,7 @@ WriteMakefile
           'NAME' => 'POD2::CN',
           'VERSION_FROM' => 'lib/POD2/CN.pm',
           'PREREQ_PM' => {
+                           'POD2::Base' => '0',
                            'Test::More' => '0'
                          },
           'INSTALLDIRS' => 'site',

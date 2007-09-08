@@ -1,35 +1,37 @@
+=encoding utf8
+
 =head1 NAME
 
-perlsub - Perl ×Ó³ÌÐò(sub)
+perlsub - Perl å­ç¨‹åº(sub)
 
-=head1 Óï·¨
+=head1 è¯­æ³•
 
-×Ó³ÌÐòµÄÉùÃ÷ºÍ¶¨Òå£º
+å­ç¨‹åºçš„å£°æ˜Žå’Œå®šä¹‰ï¼š
 
-    sub NAME;                       #  ¼òµ¥µÄÉùÃ÷
-    sub NAME(PROTO);                #  Í¬ÉÏ£¬µ«ÊÇ°üº¬Ô­ÐÍÃèÊö
-    sub NAME : ATTRS;               #  ´øÊôÐÔÃèÊöµÄÉùÃ÷
-    sub NAME(PROTO) : ATTRS;        #  Í¬Ê±°üº¬ÊôÐÔÃèÊöºÍÔ­ÐÍÃèÊö
+    sub NAME;                       #  ç®€å•çš„å£°æ˜Ž
+    sub NAME(PROTO);                #  åŒä¸Šï¼Œä½†æ˜¯åŒ…å«åŽŸåž‹æè¿°
+    sub NAME : ATTRS;               #  å¸¦å±žæ€§æè¿°çš„å£°æ˜Ž
+    sub NAME(PROTO) : ATTRS;        #  åŒæ—¶åŒ…å«å±žæ€§æè¿°å’ŒåŽŸåž‹æè¿°
 
-    sub NAME BLOCK                  #  ÉùÃ÷µÄÍ¬Ê±½øÐÐ¶¨Òå
-    sub NAME(PROTO) BLOCK           #  Í¬ÉÏ£¬µ«ÊÇ°üº¬Ô­ÐÍÃèÊö
-    sub NAME : ATTRS BLOCK          #  ´øÊôÐÔÃèÊöµÄ¶¨Òå
-    sub NAME(PROTO) : ATTRS BLOCK   #  Í¬Ê±°üº¬ÊôÐÔÃèÊöºÍÔ­ÐÍÃèÊö
+    sub NAME BLOCK                  #  å£°æ˜Žçš„åŒæ—¶è¿›è¡Œå®šä¹‰
+    sub NAME(PROTO) BLOCK           #  åŒä¸Šï¼Œä½†æ˜¯åŒ…å«åŽŸåž‹æè¿°
+    sub NAME : ATTRS BLOCK          #  å¸¦å±žæ€§æè¿°çš„å®šä¹‰
+    sub NAME(PROTO) : ATTRS BLOCK   #  åŒæ—¶åŒ…å«å±žæ€§æè¿°å’ŒåŽŸåž‹æè¿°
 
-ÔÚÔËÐÐÊ±¶¨ÒåÒ»¸öÄäÃûµÄ×Ó³ÌÐò£º
+åœ¨è¿è¡Œæ—¶å®šä¹‰ä¸€ä¸ªåŒ¿åçš„å­ç¨‹åºï¼š
 
-    $subref = sub BLOCK;            # ²»°üº¬ÊôÐÔÃèÊöºÍÔ­ÐÍÃèÊö
-    $subref = sub (PROTO) BLOCK;    # °üº¬Ô­ÐÍÃèÊö
-    $subref = sub : ATTRS BLOCK;    # °üº¬ÊôÐÔÃèÊö
-    $subref = sub (PROTO) : ATTRS BLOCK; # Í¬Ê±°üº¬ÊôÐÔÃèÊöºÍÔ­ÐÍÃèÊö
+    $subref = sub BLOCK;            # ä¸åŒ…å«å±žæ€§æè¿°å’ŒåŽŸåž‹æè¿°
+    $subref = sub (PROTO) BLOCK;    # åŒ…å«åŽŸåž‹æè¿°
+    $subref = sub : ATTRS BLOCK;    # åŒ…å«å±žæ€§æè¿°
+    $subref = sub (PROTO) : ATTRS BLOCK; # åŒæ—¶åŒ…å«å±žæ€§æè¿°å’ŒåŽŸåž‹æè¿°
 
-´Ó±ðµÄÄ£¿éµ¼Èë×Ó½ø³Ì£º
+ä»Žåˆ«çš„æ¨¡å—å¯¼å…¥å­è¿›ç¨‹ï¼š
 
     use MODULE qw(NAME1 NAME2 NAME3);
 
-µ÷ÓÃ×Ó³ÌÐò£º
+è°ƒç”¨å­ç¨‹åºï¼š
 
-    NAME(LIST);    # ÓÃÔ²À¨ºÅµÄÊ±ºò
+    NAME(LIST);    # ç”¨åœ†æ‹¬å·çš„æ—¶å€™
     NAME LIST;     # Parentheses optional if predeclared/imported.
     &NAME(LIST);   # Circumvent prototypes.
     &NAME;     # Makes current @_ visible to called subroutine.

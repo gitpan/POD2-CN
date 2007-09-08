@@ -1,6 +1,6 @@
 ---
 name: POD2-CN
-version: 0.01
+version: 0.02
 author:
   - 'PerlChina Team <china-pm@pm.org>'
 abstract: Chinese translation of Perl core documentation
@@ -8,11 +8,12 @@ license: perl
 resources:
   license: http://dev.perl.org/licenses/
 build_requires:
+  POD2::Base: 0
   Test::More: 0
 provides:
   POD2::CN:
     file: lib/POD2/CN.pm
-    version: 0.01
+    version: 0.02
 generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

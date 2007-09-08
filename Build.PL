@@ -10,6 +10,7 @@ my $builder = Module::Build->new(
     create_makefile_pl  => 'traditional',
     build_requires => {
         'Test::More' => 0,
+        'POD2::Base' => 0,
     },
     add_to_cleanup      => [ 'POD2-CN-*' ],
 );

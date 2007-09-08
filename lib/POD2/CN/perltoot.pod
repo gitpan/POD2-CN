@@ -1,11 +1,13 @@
+=encoding utf8
+
 =head1 NAME
 
-perltoot - Tom µÄ Perl ÃæÏò¶ÔÏó±à³Ì½Ì³Ì
+perltoot - Tom çš„ Perl é¢å‘å¯¹è±¡ç¼–ç¨‹æ•™ç¨‹
 
 =head1 DESCRIPTION
 
-ÕâĞ©ÄêÀ´¡°ÃæÏò¶ÔÏó±à³Ì¡±³´µÃºÜÈÈ¡£ºÜ¶à¾­ÀíÉõÖÁÄÃËüµ±·¹³Ô¡£ÕâÊ±ÎªÊ²Ã´
-ÄØ£¿¡°¶ÔÏó¡±µ½µ×ÓĞÊ²Ã´ÌØÊâµÄµØ·½ÄØ£¿µ½µ×Ê²Ã´ÊÇ¡°¶ÔÏó¡±ÄØ£¿
+è¿™äº›å¹´æ¥â€œé¢å‘å¯¹è±¡ç¼–ç¨‹â€ç‚’å¾—å¾ˆçƒ­ã€‚å¾ˆå¤šç»ç†ç”šè‡³æ‹¿å®ƒå½“é¥­åƒã€‚è¿™æ—¶ä¸ºä»€ä¹ˆ
+å‘¢ï¼Ÿâ€œå¯¹è±¡â€åˆ°åº•æœ‰ä»€ä¹ˆç‰¹æ®Šçš„åœ°æ–¹å‘¢ï¼Ÿåˆ°åº•ä»€ä¹ˆæ˜¯â€œå¯¹è±¡â€å‘¢ï¼Ÿ
 
 An object is nothing but a way of tucking away complex behaviours into
 a neat little easy-to-use bundle.  (This is what professors call
@@ -170,7 +172,7 @@ peers() to get at per-object data hidden away in our anonymous hash.
     use strict;
 
     ##################################################
-    ## ¶ÔÏó¹¹ÔìÆ÷µÄÒ»¸ö¼òµ¥°æ±¾                     ##
+    ## å¯¹è±¡æ„é€ å™¨çš„ä¸€ä¸ªç®€å•ç‰ˆæœ¬                     ##
     ##################################################
     sub new {
         my $self  = {};
@@ -182,10 +184,10 @@ peers() to get at per-object data hidden away in our anonymous hash.
     }
 
     ##############################################
-    ## ·ÃÎÊ¶ÔÏóÊı¾İµÄ·½·¨                       ##
+    ## è®¿é—®å¯¹è±¡æ•°æ®çš„æ–¹æ³•                       ##
     ##                                          ##
-    ## ÓĞ²ÎÊı¾ÍĞŞ¸ÄÏàÓ¦µÄÖµ£¬Ã»²ÎÊı¾Í·µ»Øµ±Ç°µÄ ##
-    ## Öµ¡£                                     ##
+    ## æœ‰å‚æ•°å°±ä¿®æ”¹ç›¸åº”çš„å€¼ï¼Œæ²¡å‚æ•°å°±è¿”å›å½“å‰çš„ ##
+    ## å€¼ã€‚                                     ##
     ##############################################
 
     sub name {
@@ -213,7 +215,7 @@ and peers().  These are all substantially similar.  If called with an
 argument, they set the appropriate field; otherwise they return the
 value held by that field, meaning the value of that hash key.
 
-=head2 ´Ó³¤Ô¶¿¼ÂÇ£º¸üºÃµÄ¹¹ÔìÆ÷
+=head2 ä»é•¿è¿œè€ƒè™‘ï¼šæ›´å¥½çš„æ„é€ å™¨
 
 Even though at this point you may not even know what it means, someday
 you're going to worry about inheritance.  (You can safely ignore this

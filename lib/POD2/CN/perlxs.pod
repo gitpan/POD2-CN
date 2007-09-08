@@ -1,87 +1,89 @@
 # -*- mode: outline; outline-regexp: "[=]+" -*-
+=encoding utf8
+
 =head1 NAME
 
-perlxs - XS ÓïÑÔÊÖ²á
+perlxs - XS è¯­è¨€æ‰‹å†Œ
 
 =head1 DESCRIPTION
 
-=head2 ¼ò½é
+=head2 ç®€ä»‹
 
-XS ÊÇÒ»¸öÓÃÀ´ÔÚ Perl ºÍÐèÒªÔÚ Perl ÄÚÊ¹ÓÃµÄ C ´úÂë£¨»òÕß C ¿â£©Ö®¼ä´´
-½¨À©Õ¹µÄ½Ó¿ÚÃèÊöÎÄ¼þ¸ñÊ½¡£XS ½Ó¿ÚÓë C ¿âÁ¬½Ó´´½¨ÁËÒ»¸öÄÜ±» Perl ¶¯Ì¬µ¼
-Èë»òÕß¾²Ì¬Á´½Óµ½ Perl µÄÐÂµÄ¿â¡£XS ½Ó¿ÚÃèÊöÊÇÓÃ XS ÓïÑÔÐ´µÄ£¬ÊÇ Perl
-À©Õ¹½Ó¿ÚµÄºËÐÄ×é³É¡£
+XS æ˜¯ä¸€ä¸ªç”¨æ¥åœ¨ Perl å’Œéœ€è¦åœ¨ Perl å†…ä½¿ç”¨çš„ C ä»£ç ï¼ˆæˆ–è€… C åº“ï¼‰ä¹‹é—´åˆ›
+å»ºæ‰©å±•çš„æŽ¥å£æè¿°æ–‡ä»¶æ ¼å¼ã€‚XS æŽ¥å£ä¸Ž C åº“è¿žæŽ¥åˆ›å»ºäº†ä¸€ä¸ªèƒ½è¢« Perl åŠ¨æ€å¯¼
+å…¥æˆ–è€…é™æ€é“¾æŽ¥åˆ° Perl çš„æ–°çš„åº“ã€‚XS æŽ¥å£æè¿°æ˜¯ç”¨ XS è¯­è¨€å†™çš„ï¼Œæ˜¯ Perl
+æ‰©å±•æŽ¥å£çš„æ ¸å¿ƒç»„æˆã€‚
  
-Ò»¸ö B<XSUB> ÊÇ¹¹³É XS ½Ó¿ÚµÄ×î»ù±¾µ¥Î»¡£Í¨¹ý B<xsubpp> ±àÒëÆ÷µÄ±àÒë£¬
-Ã¿¸ö XSUB µÈ¼ÛÓÚÒ»¸ö C º¯ÊýµÄ¶¨Òå£¬ÕâÕ³ºÏÁË Perl µ÷ÓÃµÄ¹æ¶¨ºÍ C µ÷ÓÃµÄ
-¹æ¶¨¡£
+ä¸€ä¸ª B<XSUB> æ˜¯æž„æˆ XS æŽ¥å£çš„æœ€åŸºæœ¬å•ä½ã€‚é€šè¿‡ B<xsubpp> ç¼–è¯‘å™¨çš„ç¼–è¯‘ï¼Œ
+æ¯ä¸ª XSUB ç­‰ä»·äºŽä¸€ä¸ª C å‡½æ•°çš„å®šä¹‰ï¼Œè¿™ç²˜åˆäº† Perl è°ƒç”¨çš„è§„å®šå’Œ C è°ƒç”¨çš„
+è§„å®šã€‚
 
-Õâ¸öÕ³ºÏ´úÂë½«²ÎÊý´Ó Perl µÄ²ÎÊýÕ»ÖÐÈ¡³ö£¬½«ÕâÐ© Perl Öµ×ª»¯³É C º¯ÊýµÄ
-¸ñÊ½£¬µ÷ÓÃ C º¯Êý£¬½«·µ»ØÖµ·µ»Øµ½ Perl ÖÐ¡£ÕâÀïµÄ·µ»ØÖµ¿ÉÒÔÊÇÄÇÐ©ÄÜ¹»×÷
-ÎªÊä³ö²ÎÊýµÄ C ÀàÐÍµÄ·µ»ØÖµ»òÕßÈÎºÎ C º¯ÊýµÄ²ÎÊý¡£ÕâÐ©·µ»ØÖµ¿ÉÒÔÍ¨¹ý·Å
-µ½ Perl ²ÎÊýÕ»»òÕßÐÞ¸Ä Perl Ìá¹©µÄ²ÎÊýÀ´·µ»Ø¸ø Perl¡£
+è¿™ä¸ªç²˜åˆä»£ç å°†å‚æ•°ä»Ž Perl çš„å‚æ•°æ ˆä¸­å–å‡ºï¼Œå°†è¿™äº› Perl å€¼è½¬åŒ–æˆ C å‡½æ•°çš„
+æ ¼å¼ï¼Œè°ƒç”¨ C å‡½æ•°ï¼Œå°†è¿”å›žå€¼è¿”å›žåˆ° Perl ä¸­ã€‚è¿™é‡Œçš„è¿”å›žå€¼å¯ä»¥æ˜¯é‚£äº›èƒ½å¤Ÿä½œ
+ä¸ºè¾“å‡ºå‚æ•°çš„ C ç±»åž‹çš„è¿”å›žå€¼æˆ–è€…ä»»ä½• C å‡½æ•°çš„å‚æ•°ã€‚è¿™äº›è¿”å›žå€¼å¯ä»¥é€šè¿‡æ”¾
+åˆ° Perl å‚æ•°æ ˆæˆ–è€…ä¿®æ”¹ Perl æä¾›çš„å‚æ•°æ¥è¿”å›žç»™ Perlã€‚
 
-ÉÏÃæËùËµµÄ´ó¸Å¾ÍÊÇ½«Òª·¢ÉúµÄÊÂÇéµÄ¼òµ¥ÃèÊö¡£ÓÉÓÚ Perl µÄµ÷ÓÃ¹æÔò±È C
-ÒªÁé»îµÃ¶à£¬Òò´Ë XSUB Êµ¼ÊÉÏÒª×ö¸ü¶àµÄÊÂÇé£¬ÀýÈç¼ìÑéÊäÈë²ÎÊýµÄºÏ·¨ÐÔ£¬
-Èç¹û C º¯ÊýµÄ·µ»ØÖµ±íÊ¾Ê§°ÜµÄ»°ÒªÅ×³öÒ»¸öÒì³££¨»òÕß·µ»Ø undef/¿ÕÁÐ
-±í£©£¬¸ù¾Ý²ÎÊýµÄÊýÁ¿ºÍÀàÐÍµ÷ÓÃ²»Í¬µÄ C º¯Êý£¬Ìá¹©ÃæÏò¶ÔÏóµÄ½Ó¿ÚµÈµÈ¡£
+ä¸Šé¢æ‰€è¯´çš„å¤§æ¦‚å°±æ˜¯å°†è¦å‘ç”Ÿçš„äº‹æƒ…çš„ç®€å•æè¿°ã€‚ç”±äºŽ Perl çš„è°ƒç”¨è§„åˆ™æ¯” C
+è¦çµæ´»å¾—å¤šï¼Œå› æ­¤ XSUB å®žé™…ä¸Šè¦åšæ›´å¤šçš„äº‹æƒ…ï¼Œä¾‹å¦‚æ£€éªŒè¾“å…¥å‚æ•°çš„åˆæ³•æ€§ï¼Œ
+å¦‚æžœ C å‡½æ•°çš„è¿”å›žå€¼è¡¨ç¤ºå¤±è´¥çš„è¯è¦æŠ›å‡ºä¸€ä¸ªå¼‚å¸¸ï¼ˆæˆ–è€…è¿”å›ž undef/ç©ºåˆ—
+è¡¨ï¼‰ï¼Œæ ¹æ®å‚æ•°çš„æ•°é‡å’Œç±»åž‹è°ƒç”¨ä¸åŒçš„ C å‡½æ•°ï¼Œæä¾›é¢å‘å¯¹è±¡çš„æŽ¥å£ç­‰ç­‰ã€‚
 
-µ±È»£¬Äã¿ÉÒÔÖ±½ÓÊ¹ÓÃ C À´Ð´ÕâÑùµÄÕ³ºÏ´úÂë¡£µ«ÊÇÕâ½«ÊÇÒ»¸öÈß³¤·¦Î¶µÄ¹¤
-×÷¡£ÌØ±ðÊÇµ±ÄãÐèÒªÎª¶à¸ö C º¯ÊýÐ´ÕâÑùµÄÕ³ºÏ´úÂë£¬¶øÆäÖÐÒ»¸öÓë Perl µÄ
-²ÎÊýÕ»¹æÔò»òÕßÆäËüÄÑ¶®µÄ¶«Î÷£¨arcana£©²»ÊÇºÜÏàËÆµÄÊ±ºò¡£ XS ¿ÉÒÔÔÚÕâÒ»
-µãÉÏÄÜ°ïÖúÄã£º²»ÓÃÐ´ºÜ³¤µÄÕ³ºÏ C ´úÂë£¬Äã¿ÉÒÔÖ»Ð´Ò»¸ö¸ü¼ò¶ÌµÄ¶ÔÕ³ºÏ´ú
-ÂëÍê³ÉÈÎÎñµÄI<ËµÃ÷>£¬ÈÃ XS µÄ±àÒëÆ÷ B<xsubpp> À´´¦ÀíÆäÓàµÄÊÂÇé¡£
+å½“ç„¶ï¼Œä½ å¯ä»¥ç›´æŽ¥ä½¿ç”¨ C æ¥å†™è¿™æ ·çš„ç²˜åˆä»£ç ã€‚ä½†æ˜¯è¿™å°†æ˜¯ä¸€ä¸ªå†—é•¿ä¹å‘³çš„å·¥
+ä½œã€‚ç‰¹åˆ«æ˜¯å½“ä½ éœ€è¦ä¸ºå¤šä¸ª C å‡½æ•°å†™è¿™æ ·çš„ç²˜åˆä»£ç ï¼Œè€Œå…¶ä¸­ä¸€ä¸ªä¸Ž Perl çš„
+å‚æ•°æ ˆè§„åˆ™æˆ–è€…å…¶å®ƒéš¾æ‡‚çš„ä¸œè¥¿ï¼ˆarcanaï¼‰ä¸æ˜¯å¾ˆç›¸ä¼¼çš„æ—¶å€™ã€‚ XS å¯ä»¥åœ¨è¿™ä¸€
+ç‚¹ä¸Šèƒ½å¸®åŠ©ä½ ï¼šä¸ç”¨å†™å¾ˆé•¿çš„ç²˜åˆ C ä»£ç ï¼Œä½ å¯ä»¥åªå†™ä¸€ä¸ªæ›´ç®€çŸ­çš„å¯¹ç²˜åˆä»£
+ç å®Œæˆä»»åŠ¡çš„I<è¯´æ˜Ž>ï¼Œè®© XS çš„ç¼–è¯‘å™¨ B<xsubpp> æ¥å¤„ç†å…¶ä½™çš„äº‹æƒ…ã€‚
 
-XS ÓïÑÔÔÊÐíÄãÃèÊö C º¯ÊýµÄÊ¹ÓÃºÍ¶ÔÓ¦ Perl º¯ÊýÊ¹ÓÃÖ®¼äµÄÓ³Éä¹ØÏµ¡£Ò²ÔÊ
-Ðí´´½¨Ò»¸öÖ±½Ó×ª»»³É C ´úÂëµÄ Perl º¯Êý£¬Õâ¸öº¯Êý¿ÉÒÔÊÇÒ»¸ö²»´æÔÚµÄ C
-º¯Êý¡£µ± C ½Ó¿ÚÓë Perl ½Ó¿ÚÒ»ÖÂÊ±£¬XSUB µÄÉùÃ÷¼¸ºõºÍ C º¯ÊýµÄÉùÃ÷£¨K&R
-·ç¸ñ£©ÍêÈ«ÏàÍ¬¡£ÔÚÕâÖÖÇé¿öÏÂ£¬ÓÐÒ»¸ö½Ð C<h2xs> µÄ¹¤¾ßÄÜ°ÑÒ»¸ö C Í·ÎÄ¼þ
-×ª»»³É¶ÔÓ¦µÄ XS ÎÄ¼þ¡£ÔÚÕâ¸ö XS ÎÄ¼þÖÐÌá¹©ÁËÍ·ÎÄ¼þÖÐµÄº¯ÊýºÍºêµÄÕ³ºÏ´ú
-Âë¡£
+XS è¯­è¨€å…è®¸ä½ æè¿° C å‡½æ•°çš„ä½¿ç”¨å’Œå¯¹åº” Perl å‡½æ•°ä½¿ç”¨ä¹‹é—´çš„æ˜ å°„å…³ç³»ã€‚ä¹Ÿå…
+è®¸åˆ›å»ºä¸€ä¸ªç›´æŽ¥è½¬æ¢æˆ C ä»£ç çš„ Perl å‡½æ•°ï¼Œè¿™ä¸ªå‡½æ•°å¯ä»¥æ˜¯ä¸€ä¸ªä¸å­˜åœ¨çš„ C
+å‡½æ•°ã€‚å½“ C æŽ¥å£ä¸Ž Perl æŽ¥å£ä¸€è‡´æ—¶ï¼ŒXSUB çš„å£°æ˜Žå‡ ä¹Žå’Œ C å‡½æ•°çš„å£°æ˜Žï¼ˆK&R
+é£Žæ ¼ï¼‰å®Œå…¨ç›¸åŒã€‚åœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œæœ‰ä¸€ä¸ªå« C<h2xs> çš„å·¥å…·èƒ½æŠŠä¸€ä¸ª C å¤´æ–‡ä»¶
+è½¬æ¢æˆå¯¹åº”çš„ XS æ–‡ä»¶ã€‚åœ¨è¿™ä¸ª XS æ–‡ä»¶ä¸­æä¾›äº†å¤´æ–‡ä»¶ä¸­çš„å‡½æ•°å’Œå®çš„ç²˜åˆä»£
+ç ã€‚
 
-XS µÄ±àÒëÆ÷½Ð×ö B<xsubpp>¡£Õâ¸ö±àÒëÆ÷´´½¨ÄÜÈÃ XSUB ²Ù×÷ Perl Êý¾ÝµÄ½á
-¹¹£¨construct£©£¬ÒÔ¼°ÄÜÈÃ Perl µ÷ÓÃ XSUB µÄÕ³ºÏ´úÂë¡£ËüÊ¹ÓÃ B<typemap>
-À´Ó³Éä C º¯ÊýµÄ²ÎÊýºÍ·µ»Ø¸ø Perl Êý¾Ý¡£Ä¬ÈÏµÄ typemap £¨ºÍ Perl Ò»Æð·¢
-ÐÐ£©ÄÜ´¦ÀíÐí¶àÆÕÍ¨µÄ C ÀàÐÍ¡£¶ÔÓÚÌØÊâµÄ½á¹¹ÌåºÍÒªÁ´½ÓµÄ¿âÖÐµÄÊý¾ÝÀàÐÍ
-¿ÉÄÜÒªÌá¹©¶ÔÓ¦µÄ typemap¡£
+XS çš„ç¼–è¯‘å™¨å«åš B<xsubpp>ã€‚è¿™ä¸ªç¼–è¯‘å™¨åˆ›å»ºèƒ½è®© XSUB æ“ä½œ Perl æ•°æ®çš„ç»“
+æž„ï¼ˆconstructï¼‰ï¼Œä»¥åŠèƒ½è®© Perl è°ƒç”¨ XSUB çš„ç²˜åˆä»£ç ã€‚å®ƒä½¿ç”¨ B<typemap>
+æ¥æ˜ å°„ C å‡½æ•°çš„å‚æ•°å’Œè¿”å›žç»™ Perl æ•°æ®ã€‚é»˜è®¤çš„ typemap ï¼ˆå’Œ Perl ä¸€èµ·å‘
+è¡Œï¼‰èƒ½å¤„ç†è®¸å¤šæ™®é€šçš„ C ç±»åž‹ã€‚å¯¹äºŽç‰¹æ®Šçš„ç»“æž„ä½“å’Œè¦é“¾æŽ¥çš„åº“ä¸­çš„æ•°æ®ç±»åž‹
+å¯èƒ½è¦æä¾›å¯¹åº”çš„ typemapã€‚
 
-XS ¸ñÊ½µÄÎÄ¼þÊÇÒÔ C ÓïÑÔ²¿·Ö¿ªÊ¼£¬Ö±µ½µÚÒ»¸ö C<MODULE = Z<>> Ö¸ÁîÎªÖ¹¡£
-ÆäËü XS Ö¸ÁîºÍ XSUB ¶¨ÒåÊÇ´ÓÕâÒ»ÐÐ¿ªÊ¼µÄ¡£ÎÄ¼þµÄÕâÒ»²¿·Ö×÷ÓÃµÄÓïÑÔÍ¨³£
-³ÆÎ½ XS ÓïÑÔ¡£B<xsubpp> ÄÜ¹»Ê¶±ð²¢Ìø¹ýÔÚ C ºÍ XS ÓïÑÔ²¿·ÖÖÐµÄ POD£¨²Î
-¿¼ L<perlpod>£©£¬ÕâÑù¾ÍÔÊÐíÔÚ XS ÎÄ¼þÖÐÇ¶ÈëÎÄµµ¡£
+XS æ ¼å¼çš„æ–‡ä»¶æ˜¯ä»¥ C è¯­è¨€éƒ¨åˆ†å¼€å§‹ï¼Œç›´åˆ°ç¬¬ä¸€ä¸ª C<MODULE = Z<>> æŒ‡ä»¤ä¸ºæ­¢ã€‚
+å…¶å®ƒ XS æŒ‡ä»¤å’Œ XSUB å®šä¹‰æ˜¯ä»Žè¿™ä¸€è¡Œå¼€å§‹çš„ã€‚æ–‡ä»¶çš„è¿™ä¸€éƒ¨åˆ†ä½œç”¨çš„è¯­è¨€é€šå¸¸
+ç§°è°“ XS è¯­è¨€ã€‚B<xsubpp> èƒ½å¤Ÿè¯†åˆ«å¹¶è·³è¿‡åœ¨ C å’Œ XS è¯­è¨€éƒ¨åˆ†ä¸­çš„ PODï¼ˆå‚
+è€ƒ L<perlpod>ï¼‰ï¼Œè¿™æ ·å°±å…è®¸åœ¨ XS æ–‡ä»¶ä¸­åµŒå…¥æ–‡æ¡£ã€‚
 
-Èç¹ûÏëÒªÒ»¸ö´´½¨À©Õ¹µÄÖ¸ÄÏ£¬¿ÉÒÔ²Î¿¼ L<perlxstut>¡£
+å¦‚æžœæƒ³è¦ä¸€ä¸ªåˆ›å»ºæ‰©å±•çš„æŒ‡å—ï¼Œå¯ä»¥å‚è€ƒ L<perlxstut>ã€‚
 
-×¢Òâ£º¶ÔÓÚÒ»Ð©À©Õ¹£¬Dave Beazley µÄ SWIG ÏµÍ³¿ÉÄÜÌá¹©Ò»¸ö·Ç³£¼ò±ãµÄ»ú
-ÖÆÀ´´´½¨Õ³ºÏ´úÂë¡£Çë²Î¿¼ http://www.swig.org/¡£
+æ³¨æ„ï¼šå¯¹äºŽä¸€äº›æ‰©å±•ï¼ŒDave Beazley çš„ SWIG ç³»ç»Ÿå¯èƒ½æä¾›ä¸€ä¸ªéžå¸¸ç®€ä¾¿çš„æœº
+åˆ¶æ¥åˆ›å»ºç²˜åˆä»£ç ã€‚è¯·å‚è€ƒ http://www.swig.org/ã€‚
 
-=head2 ÈÃÎÒÃÇ¿ªÊ¼°É
+=head2 è®©æˆ‘ä»¬å¼€å§‹å§
 
-ÏÂÃæµÄºÜ¶àÀý×Ó½«¼¯ÖÐÓÚ´´½¨ Perl Óë ONC+ RPC bind ¿âº¯ÊýµÄ½Ó¿Ú¡£
-rpcb_gettime() º¯ÊýÓÃÓÚÑÝÊ¾ XS ÓïÑÔµÄÐí¶àÌØÐÔ¡£Õâ¸öº¯ÊýÓÐÁ½¸ö²ÎÊý£ºÒ»
-¸öÊÇÊäÈë²ÎÊý£¬ÁíÒ»¸öÊÇÊä³ö²ÎÊý¡£Õâ¸öº¯Êý²»·µ»ØÒ»¸ö×´Ì¬Öµ¡£
+ä¸‹é¢çš„å¾ˆå¤šä¾‹å­å°†é›†ä¸­äºŽåˆ›å»º Perl ä¸Ž ONC+ RPC bind åº“å‡½æ•°çš„æŽ¥å£ã€‚
+rpcb_gettime() å‡½æ•°ç”¨äºŽæ¼”ç¤º XS è¯­è¨€çš„è®¸å¤šç‰¹æ€§ã€‚è¿™ä¸ªå‡½æ•°æœ‰ä¸¤ä¸ªå‚æ•°ï¼šä¸€
+ä¸ªæ˜¯è¾“å…¥å‚æ•°ï¼Œå¦ä¸€ä¸ªæ˜¯è¾“å‡ºå‚æ•°ã€‚è¿™ä¸ªå‡½æ•°ä¸è¿”å›žä¸€ä¸ªçŠ¶æ€å€¼ã€‚
 
 	bool_t rpcb_gettime(const char *host, time_t *timep);
 
-ÔÚ C ÖÐ£¬ÕâÒ»º¯Êý¿ÉÒÔÕâÑùµ÷ÓÃ£º
+åœ¨ C ä¸­ï¼Œè¿™ä¸€å‡½æ•°å¯ä»¥è¿™æ ·è°ƒç”¨ï¼š
 
      #include <rpc/rpc.h>
      bool_t status;
      time_t timep;
      status = rpcb_gettime( "localhost", &timep );
 
-Èç¹û XSUB Ìá¹©´ÓÕâ¸öº¯Êýµ½ Perl µÄÖ±½Ó×ª»»£¬¾Í¿ÉÒÔÔÚ Perl ÖÐÍ¨¹ýÏÂÃæµÄ
-´úÂëÀ´Ê¹ÓÃÕâ¸ö XSUB£¬$status ºÍ $timep ±äÁ¿½«±£´æº¯ÊýµÄÊä³ö£º
+å¦‚æžœ XSUB æä¾›ä»Žè¿™ä¸ªå‡½æ•°åˆ° Perl çš„ç›´æŽ¥è½¬æ¢ï¼Œå°±å¯ä»¥åœ¨ Perl ä¸­é€šè¿‡ä¸‹é¢çš„
+ä»£ç æ¥ä½¿ç”¨è¿™ä¸ª XSUBï¼Œ$status å’Œ $timep å˜é‡å°†ä¿å­˜å‡½æ•°çš„è¾“å‡ºï¼š
 
      use RPC;
      $status = rpcb_gettime( "localhost", $timep );
 
-ÏÂÃæµÄ XS ÎÄ¼þ¾ÍÊÇÒ»¸ö XS º¯Êý£¨XS subroutine£©£¬»òÕß³ÆÖ®Îª XSUB¡£ËüÑÝ
-Ê¾ÁËÒ»¸ö¿ÉÄÜµÄrpcb_gettime() º¯ÊýµÄ½Ó¿Ú¡£Õâ¸ö XSUB ´ú±íÒ»¸öÓÉ C µ½
-Perl µÄÖ±½Ó×ª»»¡£ÔÚ Perl ÖÐÈÔÈ»±£ÁôÁËÔ­À´µÄ½Ó¿Ú¡£Õâ¸ö XSUB ½«¿ÉÒÔÔÚ
-Perl ÖÐÓÃÉÏÃæÏÔÊ¾µÄ·½·¨À´µ÷ÓÃ¡£×¢ÒâÇ°Èý¸ö #include Óï¾ä£¬ÒýÈë
-C<EXTERN.h>£¬C<perl.h>£¬ºÍ C<XSUB.h>¡£Õâ×ÜÊÇ»á³öÏÖÔÚ XS ÎÄ¼þµÄ¿ªÍ·µÄ¡£
-ÕâÔÚºóÃæ»á½øÒ»²½ËµÃ÷¡£
+ä¸‹é¢çš„ XS æ–‡ä»¶å°±æ˜¯ä¸€ä¸ª XS å‡½æ•°ï¼ˆXS subroutineï¼‰ï¼Œæˆ–è€…ç§°ä¹‹ä¸º XSUBã€‚å®ƒæ¼”
+ç¤ºäº†ä¸€ä¸ªå¯èƒ½çš„rpcb_gettime() å‡½æ•°çš„æŽ¥å£ã€‚è¿™ä¸ª XSUB ä»£è¡¨ä¸€ä¸ªç”± C åˆ°
+Perl çš„ç›´æŽ¥è½¬æ¢ã€‚åœ¨ Perl ä¸­ä»ç„¶ä¿ç•™äº†åŽŸæ¥çš„æŽ¥å£ã€‚è¿™ä¸ª XSUB å°†å¯ä»¥åœ¨
+Perl ä¸­ç”¨ä¸Šé¢æ˜¾ç¤ºçš„æ–¹æ³•æ¥è°ƒç”¨ã€‚æ³¨æ„å‰ä¸‰ä¸ª #include è¯­å¥ï¼Œå¼•å…¥
+C<EXTERN.h>ï¼ŒC<perl.h>ï¼Œå’Œ C<XSUB.h>ã€‚è¿™æ€»æ˜¯ä¼šå‡ºçŽ°åœ¨ XS æ–‡ä»¶çš„å¼€å¤´çš„ã€‚
+è¿™åœ¨åŽé¢ä¼šè¿›ä¸€æ­¥è¯´æ˜Žã€‚
 
      #include "EXTERN.h"
      #include "perl.h"
@@ -97,11 +99,11 @@ C<EXTERN.h>£¬C<perl.h>£¬ºÍ C<XSUB.h>¡£Õâ×ÜÊÇ»á³öÏÖÔÚ XS ÎÄ¼þµÄ¿ªÍ·µÄ¡£
         OUTPUT:
           timep
 
-°üÀ¨ XSUB ÔÚÄÚ Perl µÄÈÎºÎÀ©Õ¹£¬¶¼Ó¦¸ÃÓÐÒ»¸ö Perl Ä£¿é×÷ÎªÒýµ¼³ÌÐò½«À©
-Õ¹µ¼Èë Perl¡£Õâ¸öÄ£¿éµ¼³öÀ©Õ¹µÄº¯ÊýºÍ±äÁ¿µ½ Perl ³ÌÐò£¬Ê¹µÃÀ©Õ¹µÄ XSUB
-ÄÜ¹»Á´½Óµ½ Perl¡£ÔÚ±¾ÎÄÖÐµÄ´ó²¿·ÖÀý×Ó½«Ê¹ÓÃÏÂÃæµÄÄ£¿é¡£ÕýÈçÇ°ÃæÏÔÊ¾µÄ
-ÄÇÑù£¬ÔÚ Perl ÖÐ¿ÉÒÔÓÃ C<use> ÃüÁîµ¼ÈëÄ£¿é¡£ºóÃæ»áÏêÏ¸½âÊÍ Perl Ä£¿éµÄ
-¸ÅÄî¡£
+åŒ…æ‹¬ XSUB åœ¨å†… Perl çš„ä»»ä½•æ‰©å±•ï¼Œéƒ½åº”è¯¥æœ‰ä¸€ä¸ª Perl æ¨¡å—ä½œä¸ºå¼•å¯¼ç¨‹åºå°†æ‰©
+å±•å¯¼å…¥ Perlã€‚è¿™ä¸ªæ¨¡å—å¯¼å‡ºæ‰©å±•çš„å‡½æ•°å’Œå˜é‡åˆ° Perl ç¨‹åºï¼Œä½¿å¾—æ‰©å±•çš„ XSUB
+èƒ½å¤Ÿé“¾æŽ¥åˆ° Perlã€‚åœ¨æœ¬æ–‡ä¸­çš„å¤§éƒ¨åˆ†ä¾‹å­å°†ä½¿ç”¨ä¸‹é¢çš„æ¨¡å—ã€‚æ­£å¦‚å‰é¢æ˜¾ç¤ºçš„
+é‚£æ ·ï¼Œåœ¨ Perl ä¸­å¯ä»¥ç”¨ C<use> å‘½ä»¤å¯¼å…¥æ¨¡å—ã€‚åŽé¢ä¼šè¯¦ç»†è§£é‡Š Perl æ¨¡å—çš„
+æ¦‚å¿µã€‚
 
      package RPC;
 
@@ -113,91 +115,91 @@ C<EXTERN.h>£¬C<perl.h>£¬ºÍ C<XSUB.h>¡£Õâ×ÜÊÇ»á³öÏÖÔÚ XS ÎÄ¼þµÄ¿ªÍ·µÄ¡£
      bootstrap RPC;
      1;
 
-±¾ÎÄ¿ª·¢³ö¶àÖÖÕë¶Ô rpcb_gettime() µÄ XSUB ½Ó¿Ú¡£ÕâÐ© XSUB ½«½ÓÊÜ²»Í¬Ë³
-ÐòµÄ²ÎÊý»òÕß½ÓÊÜ²»Í¬ÊýÄ¿µÄ²ÎÊý¡£¶ÔÓÚÃ¿¸öÀý×Ó£¬XSUB ÊÇ C µÄ
-rpcb_gettime() º¯ÊýºÍ Perl Ö®¼äµÄ³éÏó²ã¡£XSUB ±ØÐëÈ·±£ÕæÕýµÄ
-rpcb_gettime() º¯ÊýÊÇÒÔÕýÈ·µÄ·½Ê½±»µ÷ÓÃ¡£Õâ¸ö³éÏó²ã¿ÉÒÔÊ¹±à³ÌÈËÔ±´´Ôì
-³ö¸üÏñ Perl µÄ½Ó¿Ú£¬¶ø²»ÊÇÔ­À´µÄ C º¯Êý¡£
+æœ¬æ–‡å¼€å‘å‡ºå¤šç§é’ˆå¯¹ rpcb_gettime() çš„ XSUB æŽ¥å£ã€‚è¿™äº› XSUB å°†æŽ¥å—ä¸åŒé¡º
+åºçš„å‚æ•°æˆ–è€…æŽ¥å—ä¸åŒæ•°ç›®çš„å‚æ•°ã€‚å¯¹äºŽæ¯ä¸ªä¾‹å­ï¼ŒXSUB æ˜¯ C çš„
+rpcb_gettime() å‡½æ•°å’Œ Perl ä¹‹é—´çš„æŠ½è±¡å±‚ã€‚XSUB å¿…é¡»ç¡®ä¿çœŸæ­£çš„
+rpcb_gettime() å‡½æ•°æ˜¯ä»¥æ­£ç¡®çš„æ–¹å¼è¢«è°ƒç”¨ã€‚è¿™ä¸ªæŠ½è±¡å±‚å¯ä»¥ä½¿ç¼–ç¨‹äººå‘˜åˆ›é€ 
+å‡ºæ›´åƒ Perl çš„æŽ¥å£ï¼Œè€Œä¸æ˜¯åŽŸæ¥çš„ C å‡½æ•°ã€‚
 
 =head2 The Anatomy of an XSUB
 
-×î¼òµ¥µÄ XSUB ÓÉ 3 ¸ö²¿·Ö×é³É£º·µ»ØÖµµÄÀàÐÍ£¬XSUB µÄº¯ÊýÃûºÍ²ÎÊýÃû£¬ÒÔ
-¼°²ÎÊýµÄÀàÐÍÃèÊöÒ²³Æ²ÎÊýµÄ¸ñÊ½¡£
+æœ€ç®€å•çš„ XSUB ç”± 3 ä¸ªéƒ¨åˆ†ç»„æˆï¼šè¿”å›žå€¼çš„ç±»åž‹ï¼ŒXSUB çš„å‡½æ•°åå’Œå‚æ•°åï¼Œä»¥
+åŠå‚æ•°çš„ç±»åž‹æè¿°ä¹Ÿç§°å‚æ•°çš„æ ¼å¼ã€‚
 
-ÏÂÃæµÄ XSUB ÔÊÐí Perl ³ÌÐò·ÃÎÊ C ¿âº¯Êý sin()¡£Õâ¸ö XSUB Ä£·Â C º¯ÊýÖ»
-ÓÐÒ»¸ö²ÎÊý²¢·µ»ØÒ»¸öÖµ¡£
+ä¸‹é¢çš„ XSUB å…è®¸ Perl ç¨‹åºè®¿é—® C åº“å‡½æ•° sin()ã€‚è¿™ä¸ª XSUB æ¨¡ä»¿ C å‡½æ•°åª
+æœ‰ä¸€ä¸ªå‚æ•°å¹¶è¿”å›žä¸€ä¸ªå€¼ã€‚
 
      double
      sin(x)
        double x
 
-ÄãÒ²¿ÉÒÔ°ÑÀàÐÍÃèÊöºÍ²ÎÊýÃûÁÐ±íºÏ²¢ÔÚÒ»Æð£¬ÏñÕâÑùÖØÐ´£º
+ä½ ä¹Ÿå¯ä»¥æŠŠç±»åž‹æè¿°å’Œå‚æ•°ååˆ—è¡¨åˆå¹¶åœ¨ä¸€èµ·ï¼Œåƒè¿™æ ·é‡å†™ï¼š
 
      double
      sin(double x)
 
-ÕâÊ¹ÈÃ XSUB ¿´ÉÏÈ¥¸üÀàËÆÓÚ ANSI C µÄÉùÃ÷¡£ÔÚ²ÎÊýÁÐ±íÖ®ºó²»¿ÉÒÔÓÐÒ»¸ö·Ö
-ºÅ£¬ÏñÕâÑù£º
+è¿™ä½¿è®© XSUB çœ‹ä¸ŠåŽ»æ›´ç±»ä¼¼äºŽ ANSI C çš„å£°æ˜Žã€‚åœ¨å‚æ•°åˆ—è¡¨ä¹‹åŽä¸å¯ä»¥æœ‰ä¸€ä¸ªåˆ†
+å·ï¼Œåƒè¿™æ ·ï¼š
 
      double
      sin(double x);
 
-C Ö¸Õë²ÎÊýÓÐÁ½ÖÖÓïÒå£¬C º¯ÊýÊÇÓÃÀàËÆµÄÉùÃ÷£º
+C æŒ‡é’ˆå‚æ•°æœ‰ä¸¤ç§è¯­ä¹‰ï¼ŒC å‡½æ•°æ˜¯ç”¨ç±»ä¼¼çš„å£°æ˜Žï¼š
 
      bool string_looks_as_a_number(char *s);
      bool make_char_uppercase(char *c);
 
-ÕâÔÚ XS ÖÐÊÇ²»ÐÐµÄ¡£ÕâÐ©º¯ÊýµÄ²ÎÊýÐèÒªÏò B<xsubpp> ÕâÑùÃèÊö£º
+è¿™åœ¨ XS ä¸­æ˜¯ä¸è¡Œçš„ã€‚è¿™äº›å‡½æ•°çš„å‚æ•°éœ€è¦å‘ B<xsubpp> è¿™æ ·æè¿°ï¼š
 
      char *  s
      char    &c
 
-ÕâÐ© XS µÄÉùÃ÷¶¼¶ÔÓ¦ÓÚ C<char*> µÄ C ÀàÐÍ£¬µ«ÊÇËüÃÇÓÐ²»Í¬µÄÓïÒå£¬²Î¼û
-L<¡°& µ¥Ä¿ÔËËã·û¡±>¡£
+è¿™äº› XS çš„å£°æ˜Žéƒ½å¯¹åº”äºŽ C<char*> çš„ C ç±»åž‹ï¼Œä½†æ˜¯å®ƒä»¬æœ‰ä¸åŒçš„è¯­ä¹‰ï¼Œå‚è§
+L<â€œ& å•ç›®è¿ç®—ç¬¦â€>ã€‚
 
-Äã¿ÉÒÔ°Ñ¼ä½ÓÒýÓÃÔËËã·û C<*> ¿´×÷ÀàÐÍµÄÒ»²¿·Ö£¬¶øÈ¡Ö·ÔËËã·û C<&> µ±×÷±ä
-Á¿µÄÒ»²¿·Ö£¬ÕâÑù¿ÉÄÜ¸üÈÝÒ×Ã÷°×Ò»Ð©¡£²Î¼û L<¡°Typemap¡±> ¿ÉÒÔÁË½â¸ü¶à¹ØÓÚ
-´¦Àí C ÀàÐÍÖÐÏÞ¶¨´ÊºÍµ¥Ä¿ÔËËã·ûµÄÄÚÈÝ¡£
+ä½ å¯ä»¥æŠŠé—´æŽ¥å¼•ç”¨è¿ç®—ç¬¦ C<*> çœ‹ä½œç±»åž‹çš„ä¸€éƒ¨åˆ†ï¼Œè€Œå–å€è¿ç®—ç¬¦ C<&> å½“ä½œå˜
+é‡çš„ä¸€éƒ¨åˆ†ï¼Œè¿™æ ·å¯èƒ½æ›´å®¹æ˜“æ˜Žç™½ä¸€äº›ã€‚å‚è§ L<â€œTypemapâ€> å¯ä»¥äº†è§£æ›´å¤šå…³äºŽ
+å¤„ç† C ç±»åž‹ä¸­é™å®šè¯å’Œå•ç›®è¿ç®—ç¬¦çš„å†…å®¹ã€‚
 
-º¯ÊýÃûºÍ·µ»ØÖµÀàÐÍ±ØÐë·ÅÔÚ²»Í¬µÄÐÐÖÐ£¬¶øÇÒ±ØÐëÊÇ×ó¶ÔÆëµÄ¡£
+å‡½æ•°åå’Œè¿”å›žå€¼ç±»åž‹å¿…é¡»æ”¾åœ¨ä¸åŒçš„è¡Œä¸­ï¼Œè€Œä¸”å¿…é¡»æ˜¯å·¦å¯¹é½çš„ã€‚
 
-     ´íÎó                           ÕýÈ·
+     é”™è¯¯                           æ­£ç¡®
 
   double sin(x)                    double
     double x                       sin(x)
                                        double x
 
-º¯ÊýÆäËüÃèÊö¿ÉÒÔËõ½ø»òÕß×ó¶ÔÆë¡£ÏÂÒ»¸öÀý×ÓÏÔÊ¾Ò»¸ö×ó¶ÔÆëº¯ÊýµÄÖ÷Ìå²¿·Ö¡£
-±¾ÎÄÖÐ´ó¶àÊýÀý×ÓÎªÁËÊ¹´úÂë¸üÈÝÒ×¶Á¶ø²ÉÓÃËõ½øµÄ·½Ê½¡£
+å‡½æ•°å…¶å®ƒæè¿°å¯ä»¥ç¼©è¿›æˆ–è€…å·¦å¯¹é½ã€‚ä¸‹ä¸€ä¸ªä¾‹å­æ˜¾ç¤ºä¸€ä¸ªå·¦å¯¹é½å‡½æ•°çš„ä¸»ä½“éƒ¨åˆ†ã€‚
+æœ¬æ–‡ä¸­å¤§å¤šæ•°ä¾‹å­ä¸ºäº†ä½¿ä»£ç æ›´å®¹æ˜“è¯»è€Œé‡‡ç”¨ç¼©è¿›çš„æ–¹å¼ã€‚
 
-   ÕýÈ·
+   æ­£ç¡®
 
   double
   sin(x)
   double x
 
-¸ü¸´ÔÓµÄ XSUB ¿ÉÄÜº¬ÓÐ¸ü¶àµÄ²¿·Ö¡£XSUB µÄÃ¿¸ö²¿·Ö¶¼ÊÇÒÔ¶ÔÓ¦µÄ¹Ø¼ü×Ö¿ª
-Ê¼µÄ£¬ÀýÈç INIT: »òÕß CLEANUP:¡£µ«ÊÇ XSUB µÄÍ·Á½ÐÐ×ÜÊÇÒ»ÑùµÄ£º·µ»ØÖµµÄ
-ÃèÊöºÍº¯ÊýÃû¼°²ÎÊý¡£³ý·ÇÏÔÊ¾µÄÊ¹ÓÃÆäËü¹Ø¼ü×Ö±ê¼Ç£¬½ÓÏÂÀ´Ó¦¸ÃÊÇ INPUT:
-²¿·Ö¡££¨²Î¿¼ L<INPUT: ¹Ø¼ü×Ö>£©¡£
+æ›´å¤æ‚çš„ XSUB å¯èƒ½å«æœ‰æ›´å¤šçš„éƒ¨åˆ†ã€‚XSUB çš„æ¯ä¸ªéƒ¨åˆ†éƒ½æ˜¯ä»¥å¯¹åº”çš„å…³é”®å­—å¼€
+å§‹çš„ï¼Œä¾‹å¦‚ INIT: æˆ–è€… CLEANUP:ã€‚ä½†æ˜¯ XSUB çš„å¤´ä¸¤è¡Œæ€»æ˜¯ä¸€æ ·çš„ï¼šè¿”å›žå€¼çš„
+æè¿°å’Œå‡½æ•°ååŠå‚æ•°ã€‚é™¤éžæ˜¾ç¤ºçš„ä½¿ç”¨å…¶å®ƒå…³é”®å­—æ ‡è®°ï¼ŒæŽ¥ä¸‹æ¥åº”è¯¥æ˜¯ INPUT:
+éƒ¨åˆ†ã€‚ï¼ˆå‚è€ƒ L<INPUT: å…³é”®å­—>ï¼‰ã€‚
 
-Ò»¸ö XSUB ²¿·ÖÖ±µ½ÁíÒ»¸ö²¿·Ö¿ªÊ¼µÄ¹Ø¼ü×Ö³öÏÖ²Å½áÊø¡£
+ä¸€ä¸ª XSUB éƒ¨åˆ†ç›´åˆ°å¦ä¸€ä¸ªéƒ¨åˆ†å¼€å§‹çš„å…³é”®å­—å‡ºçŽ°æ‰ç»“æŸã€‚
 
-=head2 ²ÎÊýÕ»
+=head2 å‚æ•°æ ˆ
 
-Perl µÄ²ÎÊýÕ»ÓÃÀ´´æ´¢´«µÝ¸ø XSUB µÄ²ÎÊýÖµÒÔ¼° XSUB µÄ·µ»ØÖµ¡£ÊÂÊµÉÏ£¬
-ËùÓÐµÄ Perl º¯Êý£¨°üÀ¨ÄÇÐ©²»ÊÇ XSUB µÄº¯Êý£©¶¼ÊÇÍ¬Ê±Ê¹ÓÃÕâ¸öÕ»À´±£´æ²Î
-ÊýÖµ£¬Ã¿¸öº¯ÊýµÄ²ÎÊýÖµ¶¼±»ÏÞÖÆ·ÅÖÃÓÚËüÃÇÔÚÕ»ÖÐµÄÇø¼äÄÚ¡£Õ»µÄµÚÒ»¸öÎ»ÖÃ
-ÊôÓÚ¼¤»îµÄº¯Êý£¬ÔÚ±¾ÎÄÖÐ£¬ÎÒÃÇ³ÆÖ®Îªº¯ÊýµÄ position 0¡£
+Perl çš„å‚æ•°æ ˆç”¨æ¥å­˜å‚¨ä¼ é€’ç»™ XSUB çš„å‚æ•°å€¼ä»¥åŠ XSUB çš„è¿”å›žå€¼ã€‚äº‹å®žä¸Šï¼Œ
+æ‰€æœ‰çš„ Perl å‡½æ•°ï¼ˆåŒ…æ‹¬é‚£äº›ä¸æ˜¯ XSUB çš„å‡½æ•°ï¼‰éƒ½æ˜¯åŒæ—¶ä½¿ç”¨è¿™ä¸ªæ ˆæ¥ä¿å­˜å‚
+æ•°å€¼ï¼Œæ¯ä¸ªå‡½æ•°çš„å‚æ•°å€¼éƒ½è¢«é™åˆ¶æ”¾ç½®äºŽå®ƒä»¬åœ¨æ ˆä¸­çš„åŒºé—´å†…ã€‚æ ˆçš„ç¬¬ä¸€ä¸ªä½ç½®
+å±žäºŽæ¿€æ´»çš„å‡½æ•°ï¼Œåœ¨æœ¬æ–‡ä¸­ï¼Œæˆ‘ä»¬ç§°ä¹‹ä¸ºå‡½æ•°çš„ position 0ã€‚
 
-XSUB Í¨¹ýÊ¹ÓÃ B<ST(x)> ºêµÃµ½Õ»ÖÐµÄ²ÎÊý£¬ÕâÀï I<x> ÊÇÖ¸ XSUB ÔÚÕ»ÖÐµÄ
-Î»ÖÃ¡£º¯ÊýµÄ position 0 ¶ÔÓÚ XSUB À´Ëµ¾ÍÊÇ ST(0)¡£¶ÔÓÚ´ó¶àÊý¼òµ¥µÄÇé
-¿ö£¬B<xsubpp> ±àÒëÆ÷ÄÜ¹»´Ó typemap ÖÐÓÉÄÚÇ¶µÄ´úÂëÆ¬¶Ï²úÉú´úÂëÀ´´¦Àí²Î
-ÊýÕ»¡£¶ÔÓÚ¸´ÔÓµÄÇé¿ö£¬³ÌÐòÔ±±ØÐëÌá¹©ÕâÐ©´úÂë¡£
+XSUB é€šè¿‡ä½¿ç”¨ B<ST(x)> å®å¾—åˆ°æ ˆä¸­çš„å‚æ•°ï¼Œè¿™é‡Œ I<x> æ˜¯æŒ‡ XSUB åœ¨æ ˆä¸­çš„
+ä½ç½®ã€‚å‡½æ•°çš„ position 0 å¯¹äºŽ XSUB æ¥è¯´å°±æ˜¯ ST(0)ã€‚å¯¹äºŽå¤§å¤šæ•°ç®€å•çš„æƒ…
+å†µï¼ŒB<xsubpp> ç¼–è¯‘å™¨èƒ½å¤Ÿä»Ž typemap ä¸­ç”±å†…åµŒçš„ä»£ç ç‰‡æ–­äº§ç”Ÿä»£ç æ¥å¤„ç†å‚
+æ•°æ ˆã€‚å¯¹äºŽå¤æ‚çš„æƒ…å†µï¼Œç¨‹åºå‘˜å¿…é¡»æä¾›è¿™äº›ä»£ç ã€‚
 
-=head2 RETVAL ±äÁ¿
+=head2 RETVAL å˜é‡
 
-RETVAL ÊÇÒ»¸ö×Ô¶¯ÎªÄã¶¨ÒåµÄÌØÊâ C ±äÁ¿¡£
+RETVAL æ˜¯ä¸€ä¸ªè‡ªåŠ¨ä¸ºä½ å®šä¹‰çš„ç‰¹æ®Š C å˜é‡ã€‚
 The RETVAL variable is a special C variable that is declared automatically
 for you.  The C type of RETVAL matches the return type of the C library
 function.  The B<xsubpp> compiler will declare this variable in each XSUB
